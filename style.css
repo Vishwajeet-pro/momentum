@@ -1,0 +1,508 @@
+/* === Google Font Import: Bebas Neue (Headings) & Montserrat (Body) === */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;700&display=swap');
+
+/* === CSS Variables (Color Palette) === */
+:root {
+  --bg-dark: #141414;
+  --bg-card: #1E1E1E;
+  --accent-lime: #DFFF00;
+  --text-light: #FFFFFF;
+  --text-muted: #A0A0A0;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* === Global Reset & Base Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-lime);
+  transition: filter 0.3s ease;
+}
+a:hover {
+  filter: brightness(0.85);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+}
+h1 { font-size: 5rem; }
+h2 { font-size: 3.5rem; }
+h3 { font-size: 1.75rem; }
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+/* === Utility Classes === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent-lime);
+  color: var(--bg-dark);
+  padding: 0.8rem 1.8rem;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+.btn:hover {
+  filter: brightness(0.9);
+  transform: translateY(-3px);
+  color: var(--bg-dark); /* Ensure hover color is still dark */
+}
+
+/* === 1. Navigation Bar === */
+.navbar {
+  background: var(--bg-card);
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid #2a2a2a;
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar .logo {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: var(--text-light);
+  letter-spacing: 2px;
+}
+.navbar .logo span {
+  color: var(--accent-lime);
+}
+.navbar .nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.navbar .nav-links li {
+  margin-left: 2rem;
+}
+.navbar .nav-links a {
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+.navbar .nav-links a.active,
+.navbar .nav-links a:hover {
+  color: var(--text-light);
+}
+.navbar .btn {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-light);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* === 2. Home Page: Hero === */
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+              url('images/hero-bg.jpg') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 7rem;
+  color: var(--text-light);
+  line-height: 1;
+}
+.hero-content h1 span {
+  color: var(--accent-lime);
+}
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+}
+
+/* Home: Features Grid */
+.features {
+  padding: 5rem 0;
+  text-align: center;
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.feature-box {
+  background: var(--bg-card);
+  padding: 2.5rem 2rem;
+  border-radius: 5px;
+}
+.feature-box .icon {
+  font-size: 3rem;
+  color: var(--accent-lime);
+  margin-bottom: 1rem;
+}
+
+/* Home: Class Spotlight */
+.class-spotlight {
+  padding: 5rem 0;
+  background: var(--bg-dark);
+}
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.class-card {
+  background: var(--bg-card);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+.class-card:hover {
+  border-color: var(--accent-lime);
+  transform: translateY(-5px);
+}
+.class-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.class-card-content {
+  padding: 1.5rem 2rem;
+}
+.class-card-content a {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* === 3. Generic Page Header === */
+.page-header {
+  padding: 4rem 0;
+  text-align: center;
+  background: var(--bg-card);
+}
+.page-header h1 {
+  font-size: 4.5rem;
+}
+
+/* === 4. Classes Page (Schedule) === */
+.schedule-section {
+  padding: 5rem 0;
+}
+.schedule-container {
+  width: 100%;
+  overflow-x: auto; /* Allows horizontal scrolling on small screens */
+  margin-top: 3rem;
+}
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 0.8fr repeat(5, 1fr); /* Time + 5 days */
+  min-width: 800px; /* Force scroll if needed */
+  border: 1px solid #333;
+}
+.grid-cell {
+  padding: 1rem;
+  border: 1px solid #333;
+  min-height: 100px;
+}
+.grid-header {
+  background: var(--accent-lime);
+  color: var(--bg-dark);
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  text-align: center;
+  letter-spacing: 1px;
+  padding: 1.5rem 1rem;
+}
+.time-slot {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  text-align: center;
+  background: #222;
+  letter-spacing: 1px;
+}
+.class-entry {
+  background: var(--bg-card);
+  padding: 1rem;
+  border-radius: 5px;
+}
+.class-entry h4 {
+  color: var(--accent-lime);
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+.class-entry p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* === 5. Pricing Page === */
+.pricing-section {
+  padding: 5rem 0;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.pricing-card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 5px;
+  text-align: center;
+  border: 3px solid var(--bg-card);
+  transition: all 0.3s ease;
+}
+.pricing-card.popular {
+  border-color: var(--accent-lime);
+  transform: scale(1.05);
+}
+.pricing-card h3 {
+  font-size: 2rem;
+}
+.pricing-card .price {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--accent-lime);
+  margin: 1rem 0;
+  font-family: var(--font-body);
+}
+.pricing-card .price span {
+  font-size: 1rem;
+  color: var(--text-muted);
+}
+.pricing-card ul {
+  list-style: none;
+  margin: 2rem 0;
+  text-align: left;
+}
+.pricing-card ul li {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+.pricing-card ul li::before {
+  content: '✓';
+  color: var(--accent-lime);
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+.pricing-card .btn {
+  width: 100%;
+}
+
+/* === 6. About Page === */
+.about-facility {
+  padding: 5rem 0;
+}
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+.about-layout img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.trainers-section {
+  padding: 5rem 0;
+  background: var(--bg-card);
+  text-align: center;
+}
+.trainer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.trainer-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--accent-lime);
+  margin: 0 auto 1.5rem;
+}
+.trainer-card h4 {
+  font-size: 1.5rem;
+}
+.trainer-card p {
+  color: var(--accent-lime);
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* === 7. Contact Page === */
+.contact-section {
+  padding: 5rem 0;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+.contact-form .form-group {
+  margin-bottom: 1.5rem;
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background: var(--bg-card);
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+.map-embed {
+  width: 100%;
+  height: 100%;
+  min-height: 450px;
+}
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 5px;
+}
+
+/* === 8. Footer === */
+.footer {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  text-align: center;
+  padding: 3rem 0;
+  margin-top: 5rem;
+}
+.footer p {
+  color: var(--text-muted);
+}
+
+/* === 9. Responsive Design === */
+@media (max-width: 992px) {
+  h1 { font-size: 4rem; }
+  .hero-content h1 { font-size: 5rem; }
+  h2 { font-size: 2.5rem; }
+  
+  .features-grid,
+  .class-grid,
+  .trainer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+  .pricing-card.popular {
+    transform: scale(1);
+  }
+  .about-layout,
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 3rem; }
+  .hero-content h1 { font-size: 3.5rem; }
+  h2 { font-size: 2rem; }
+  
+  .navbar .container {
+    flex-wrap: wrap;
+  }
+  .hamburger-menu {
+    display: flex;
+  }
+  .navbar .nav-links {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    order: 3;
+    margin-top: 1rem;
+    background: var(--bg-card);
+  }
+  .navbar .nav-links.active {
+    display: flex; /* Show when toggled */
+  }
+  .navbar .nav-links li {
+    margin: 1rem 0;
+  }
+  .navbar .btn {
+    display: none; /* Hide button in nav links on mobile */
+  }
+
+  .features-grid,
+  .class-grid,
+  .trainer-grid {
+    grid-template-columns: 1fr;
+  }
+}
